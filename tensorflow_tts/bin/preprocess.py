@@ -30,11 +30,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
 
+from tensorflow_tts.processor import CommonVoiceBRProcessor
 from tensorflow_tts.processor import LJSpeechProcessor
 from tensorflow_tts.processor import BakerProcessor
 from tensorflow_tts.processor import KSSProcessor
 from tensorflow_tts.processor import LibriTTSProcessor
 
+from tensorflow_tts.processor.commonvoicebr import COMMONVOICEBR_SYMBOLS
 from tensorflow_tts.processor.ljspeech import LJSPEECH_SYMBOLS
 from tensorflow_tts.processor.baker import BAKER_SYMBOLS
 from tensorflow_tts.processor.kss import KSS_SYMBOLS
@@ -69,7 +71,7 @@ def parse_and_config():
         "--dataset",
         type=str,
         default="ljspeech",
-        choices=["ljspeech", "kss", "libritts", "baker"],
+        choices=["commonvoicebr", "ljspeech", "kss", "libritts", "baker"],
         help="Dataset to preprocess.",
     )
     parser.add_argument(
@@ -346,6 +348,7 @@ def preprocess():
     config = parse_and_config()
 
     dataset_processor = {
+        "commonvoicebr": CommonVoiceBRProcessor,
         "ljspeech": LJSpeechProcessor,
         "kss": KSSProcessor,
         "libritts": LibriTTSProcessor,
@@ -353,6 +356,7 @@ def preprocess():
     }
 
     dataset_symbol = {
+        "commonvoicebr": COMMONVOICEBR_SYMBOLS,
         "ljspeech": LJSPEECH_SYMBOLS,
         "kss": KSS_SYMBOLS,
         "libritts": LIBRITTS_SYMBOLS,
@@ -360,6 +364,7 @@ def preprocess():
     }
 
     dataset_cleaner = {
+        "commonvoicebr": "basic_cleaners",
         "ljspeech": "english_cleaners",
         "kss": "korean_cleaners",
         "libritts": None,
