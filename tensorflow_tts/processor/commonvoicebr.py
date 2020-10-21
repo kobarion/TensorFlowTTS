@@ -114,7 +114,7 @@ _pad = "pad"
 _eos = "eos"
 _punctuation = "!\"\'(),.:;? "
 _special = "-"
-_letters = "AÁÃÂÀBCÇDEÉÊFGHIÍJKLMNOÓÔÕPQRSTUÚVWXYZaáãâàbcçdeéêfghiíjklmnoóôõpqrstuúvwxyz!"
+_letters = "AÁÃÂÀBCÇDEÉÊFGHIÍJKLMNOÓÔÕPQRSTUÚVWXYZaáãâàbcçdeéêfghiíjklmnoóôõpqrstuúvwxyz"
 
 # Prepend "@" to ARPAbet symbols to ensure uniqueness (some are the same as uppercase letters):
 _arpabet = ["@" + s for s in valid_symbols]
