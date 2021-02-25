@@ -44,3 +44,14 @@ dump_kss/
 dump_libritts/
 /examples/*/*
 /notebooks/test_saved/
+CommonVoiceBR.tar.gz
+CommonVoiceBR/
+dump_commonvoicebr_16/
+dump_commonvoicebr_24/
+notebooks/alignment-07.png
+notebooks/finetune_output.tar.gz
+notebooks/spectrogram-07.png
+notebooks/tacotron_output/
+notebooks/wav-07.wav
+ttsexamples/multiband_melgan/exp/
+ttsexamples/tacotron2/exp/
